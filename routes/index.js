@@ -53,6 +53,7 @@ router.post("/completed/:id", function(req, res) {
   let item = todos.find(function(item) {
     return item.id == req.params.id;
   });
+  console.log(item);
   let index = todos.indexOf(item);
   completed.push(item);
   todos.splice(index, 1);
