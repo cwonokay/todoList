@@ -5,26 +5,26 @@
     <title>Todo list</title>
   </head>
   <body>
-    <form  action="/" method="post">
+    <form  action="/create" method="post">
       <input type="text" name="todo" value="" placeholder="Please Enter Task">
       <button type="submit" name="button">Submit</button>
     </form>
 
-  {{#todo}}
-    <form  action="/" method="post">
-        {{^done}}
-      <button type="submit" name="button" value="{{task}}">Complete Task</button>
-      {{/done}}
+  {{#todos}}
+    <form  action="/completed/{{id}}" method="post">
+
+      <button type="submit" name="button" value="">{{text}}</button>
+
     </form>
-  {{/todo}}
+  {{/todos}}
 
     <form>
-      <h2>done</h2>
-      {{#todo}}
-      {{#done}}
-      <del>{{task}}</del>
-      {{/done}}
-      {{/todo}}
+      <h2>Completed</h2>
+      {{#todos}}
+      {{#completed}}
+      <del>{{text}}</del>
+      {{/completed}}
+      {{/todos}}
     </form>
   </body>
 </html>
